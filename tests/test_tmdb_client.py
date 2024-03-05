@@ -1,4 +1,4 @@
-from tmdb_client import TMDBClient
+import tmdb_client
 from unittest.mock import Mock
 
 def test_get_movies_list(monkeypatch):
