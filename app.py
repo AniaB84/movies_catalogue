@@ -1,15 +1,15 @@
-
 from flask import Flask, render_template, request
-from tmdb_client import TMDBClient, get_poster_url
+from tmdb import get_poster_url
+import unittest, tmdb
 
 app = Flask(__name__)
 API_TOKEN ="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZGI3ZWVkMWEyMDYyNmE3OTkzZGU3NDVjNjAyMTFjZiIsInN1YiI6IjY1Nzc2ZTM4NGJmYTU0MDBmZTdmNTcyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XVEouCriGjxEOpKzsLMbcsmVUa6DT8AgHd_Hvpojurk"
-tmdb_client = TMDBClient(API_TOKEN)
+
 
 @app.route('/movies_catalogue')
 def homepage():
     selected_list = request.args.get('list_type', 'popular')
-    movies = tmdb_client.get_movies_list(selected_list)["results"]
+    movies = tmdb.get_movies_list(selected_list)["results"]
     return render_template("homepage.html", movies=movies, current_list=selected_list)
 
 @app.context_processor
@@ -20,8 +20,8 @@ def utility_processor():
 
 @app.route("/movies_catalogue/<int:movie_id>")
 def movie_details(movie_id):
-    details = tmdb_client.get_single_movie(movie_id)
-    cast = tmdb_client.get_single_movie_cast(movie_id)["cast"]
+    details = tmdb.get_single_movie(movie_id)
+    cast = tmdb.get_single_movie_cast(movie_id)["cast"]
     return render_template("movie_details.html", movie=details, cast=cast)
 
 if __name__ == '__main__':
