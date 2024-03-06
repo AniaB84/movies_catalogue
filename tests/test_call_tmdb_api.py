@@ -3,10 +3,6 @@ from unittest.mock import patch, MagicMock
 from tmdb import call_tmdb_api
 from requests.exceptions import HTTPError
 
-# klasa testowa sprawdza czy:
-# - funkcja 'call_tmdb_api' poprawnie wysyla zadanie HTTP
-# - obsluguje odpowiedzi z kodem stanu 200
-# - obsluguje bledy HTTP przez wywolanie 'raise_for_status'
 
 class TestCallTmdbApi(unittest.TestCase):
 
