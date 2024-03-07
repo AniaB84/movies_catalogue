@@ -1,9 +1,8 @@
 from flask import Flask, render_template, request
 from tmdb import get_poster_url
-import unittest, tmdb
+import tmdb
 
 app = Flask(__name__)
-API_TOKEN ="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZGI3ZWVkMWEyMDYyNmE3OTkzZGU3NDVjNjAyMTFjZiIsInN1YiI6IjY1Nzc2ZTM4NGJmYTU0MDBmZTdmNTcyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XVEouCriGjxEOpKzsLMbcsmVUa6DT8AgHd_Hvpojurk"
 
 
 @app.route('/movies_catalogue')
