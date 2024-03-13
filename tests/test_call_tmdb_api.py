@@ -15,7 +15,7 @@ class TestCallTmdbApi(unittest.TestCase):
         mock_get.return_value = mock_response
 
          # Dane potrzebne do wykonania żądania HTTP
-        API_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZGI3ZWVkMWEyMDYyNmE3OTkzZGU3NDVjNjAyMTFjZiIsInN1YiI6IjY1Nzc2ZTM4NGJmYTU0MDBmZTdmNTcyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XVEouCriGjxEOpKzsLMbcsmVUa6DT8AgHd_Hvpojurk"
+        API_TOKEN = ""
         endpoint = "example_endpoint"
         expected_url = f"https://api.themoviedb.org/3/{endpoint}"
         expected_headers = {
